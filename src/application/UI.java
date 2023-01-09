@@ -13,13 +13,11 @@ public class UI {
 			String s = sc.nextLine();
 			char column = s.charAt(0);
 			int row = Integer.parseInt(s.substring(1));
-			
 			return new ChessPosition(column, row);			
 		}catch (RuntimeException e) {
 			throw new InputMismatchException("Error reading chess position. Valid value are from a1 to h8");
 		}
 	}
-	
 	
 	public static void printBoard(ChessPiece[][] pieces) {
 		for(int i=0;i<pieces.length;i++){

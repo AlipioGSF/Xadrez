@@ -15,4 +15,10 @@ public class King extends ChessPiece{
 		if(super.getColor() == Color.WHITE) return "k";
 		return "K";
 	}
+
+	@Override
+	public boolean[][] possibleMoves() {
+		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
+		return mat;
+	}
 }

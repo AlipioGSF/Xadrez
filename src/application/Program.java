@@ -15,7 +15,7 @@ public class Program {
 		ChessMatch chessMatch = new ChessMatch();
 		while(true) {
 			try {			
-				UI.printBoard(chessMatch.getPieces());
+				UI.printMatch(chessMatch);
 				System.out.print("\nSource: ");
 				ChessPosition source = UI.readChessPosition(sc);
 				boolean[][] possibleMoves = chessMatch.possibleMoves(source);

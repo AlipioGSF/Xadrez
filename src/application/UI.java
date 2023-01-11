@@ -35,6 +35,10 @@ public class UI {
 		printCapturedPieces(captured);
 		System.out.println("\nTurn : " + chessMatch.getTurn());
 		System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+		
+		if(chessMatch.isCheck()) {
+			System.out.println("CHECK!");
+		}
 	}
 	
 	public static void printBoard(ChessPiece[][] pieces) {
@@ -75,13 +79,17 @@ public class UI {
 	}
 	
 	public static void printCapturedPieces(List<ChessPiece> captured) {
-		List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == Color.WHITE).collect(Collectors.toList());
-		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList());
-		System.out.println("Captured pieces");
-		System.out.print("White: ");
-		System.out.println(Arrays.toString(white.toArray()));
-		System.out.print("Black: ");
-		System.out.println(Arrays.toString(black.toArray()));
+		try {
+			List<ChessPiece> white = captured.stream().filter(x -> x!= null && x.getColor() == Color.WHITE).collect(Collectors.toList());
+			List<ChessPiece> black = captured.stream().filter(x -> x!=null && x.getColor() == Color.BLACK).collect(Collectors.toList());						
+			System.out.println("Captured pieces");
+			System.out.print("White: ");
+			System.out.println(Arrays.toString(white.toArray()));
+			System.out.print("Black: ");
+			System.out.println(Arrays.toString(black.toArray()));
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 	
 	}

@@ -16,6 +16,7 @@ public class Rook extends ChessPiece{
 		if(super.getColor() == Color.WHITE) return "r";
 		return "R";
 	}
+	
 	@Override
 	public boolean[][] possibleMoves() {
 		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
